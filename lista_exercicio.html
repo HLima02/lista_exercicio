@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Lista de Exercicios</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<section id="box_entrada">
+			<h1>Log de Exercícios</h1>
+
+			<form id="entrada_dados">
+				<fieldset>
+					<legend><span>Adicionar Exercício</span></legend>
+					
+					<input type="text" id="tempo" placeholder="Tempo">
+
+					<select id="opcoes">
+						<option value="">Exercicio</option>
+						<option value="corrida">Corrida</option>
+						<option value="natacao">Natação</option>
+						<option value="musculacao">Musculação</option>
+						<option value="ciclismo">Ciclismo</option>
+						<option value="crosfit">Crossfit</option>
+					</select>
+
+					<input type="text" id="data" placeholder="Data" value="">
+
+					<input type="submit" id="add" value="Add" onclick="conferirValores()">
+				</fieldset>
+			</form>		
+		</section>
+
+		<section id="lista_saida">
+			<div id="cabecalho_lista">
+				<span>Tempo</span>
+				<span>Tipo</span>
+				<span>Data</span>
+				<span id="span_exculir"></span>
+			</div>
+
+			<div id="box_lista"></div>
+		</section>
+
+		<section id="aviso">
+			<div id="aviso_txt"></div>
+		</section>
+
+		<section id="resultado_exercicio">
+			<div>Você já fez 10 horas de exercicio</div>
+		</section>
+
+		<!-- <script src="js/script.js"></script> -->
+		<script src="js/teste.js"></script>
+	</body>
+</html>
