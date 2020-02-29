@@ -14,14 +14,17 @@ var data_entrada = document.getElementById('data')
 //Função que cria e adiciona os valores na lista do DOM
 var criarValores = () => {
 	var tempo_span = document.createElement('span')
-	tempo_span.className = 'horas'
 	var tipo_span = document.createElement('span')
 	var data_span = document.createElement('span')
 	var excluir_div = document.createElement('span')
 
-	tempo_span.textContent = tempo_entrada.value + 'h'
+	tempo_span_valor = tempo_entrada.value
+	tempo_span.textContent = `${tempo_span_valor} h`
 	tipo_span.textContent = exercicio_entrada.value
 	data_span.textContent = data_entrada.value
+
+	tempo_span.className = 'horas'
+	tempo_span.tagName = 'horas'
 
 	excluir_div.className = 'fa fa-trash'
 	excluir_div.id = 'span_exculir'
@@ -47,13 +50,13 @@ var criarValores = () => {
 
 	excluir_div.onclick = () => { //função que exclui elemento 
 		lista.removeChild(item_div)
+
+		var quant_horas = parseFloat(tempo_span_valor)//recuper o numero de horas do exercicio
+		somar_horas -= quant_horas
+		mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
 	}
 
-	var calcularHoras = () => {
-		console.log(tempo_span)
-	}
-
-	calcularHoras()
+	
 }
 
 
@@ -69,6 +72,7 @@ var conferirValores = () => {
 	else{
 		avisoErroSuceso(indicador)
 		criarValores()
+		calcularHoras()
 		limparCampos()
 	}
 }
@@ -101,4 +105,23 @@ var limparCampos = () => {
 	tempo_entrada.value = ''
 	exercicio_entrada.value = ''
 	data_entrada.value = ''
+}
+
+var somar_horas = 0
+
+var mostra_soma = document.createElement('div')
+mostra_soma.id = 'mostra_soma'
+mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
+
+var sec_resultado = document.getElementById('resultado_exercicio')
+sec_resultado.appendChild(mostra_soma)
+
+var calcularHoras = () => {
+	var quant_horas = parseFloat(tempo_entrada.value)
+
+	somar_horas += quant_horas
+
+	mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
+
+	var mudar_resultado = document.getElementById('mostra_soma')
 }
