@@ -3,6 +3,7 @@
 	<head>
 		<title>Lista de Exercicios</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,20 +16,22 @@
 				<fieldset>
 					<legend><span>Adicionar Exercício</span></legend>
 					
-					<input type="text" id="tempo" placeholder="Tempo">
+					<div id="entrada_txt">
+						<input type="text" id="tempo" placeholder="Tempo">
 
-					<select id="opcoes">
-						<option value="">Exercicio</option>
-						<option value="corrida">Corrida</option>
-						<option value="natacao">Natação</option>
-						<option value="musculacao">Musculação</option>
-						<option value="ciclismo">Ciclismo</option>
-						<option value="crosfit">Crossfit</option>
-					</select>
+						<select id="opcoes">
+							<option value="">Exercicio</option>
+							<option value="corrida">Corrida</option>
+							<option value="natacao">Natação</option>
+							<option value="musculacao">Musculação</option>
+							<option value="ciclismo">Ciclismo</option>
+							<option value="crosfit">Crossfit</option>
+						</select>
 
-					<input type="text" id="data" placeholder="Data" value="">
+						<input type="text" id="data" placeholder="Data" value="">
 
-					<input type="submit" id="add" value="Add" onclick="conferirValores()">
+						<input type="submit" id="add" value="Add" onclick="conferirValores()">
+					</div>
 				</fieldset>
 			</form>		
 		</section>
@@ -50,7 +53,7 @@
 
 		<section id="resultado_exercicio"></section>
 
-		<script src="js/script.js"></script>
-		<!-- <script src="js/teste.js"></script> -->
+		<!-- <script src="js/script.js"></script> -->
+		<script src="js/teste.js"></script>
 	</body>
 </html>

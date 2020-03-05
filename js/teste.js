@@ -24,12 +24,8 @@ var criarValores = () => {
 	data_span.textContent = data_entrada.value
 
 	tempo_span.className = 'horas'
-	tempo_span.tagName = 'horas'
 
-	excluir_div.className = 'fa fa-trash'
-	excluir_div.id = 'span_exculir'
-	excluir_div.style.float = 'right'
-	excluir_div.style.cursor = 'pointer'
+	excluir_div.className = 'fa fa-trash span_excluir'
 
 	var item_div = document.createElement('div')
 	item_div.className = 'lista_itens'
@@ -49,14 +45,23 @@ var criarValores = () => {
 
 
 	excluir_div.onclick = () => { //função que exclui elemento 
-		lista.removeChild(item_div)
-
-		var quant_horas = parseFloat(tempo_span_valor)//recuper o numero de horas do exercicio
-		somar_horas -= quant_horas
-		mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
+		excluir_linha(excluir_div)
 	}
 
-	
+	calcularHoras()
+}
+
+let excluir_linha = (excluir_div) =>{
+	var linha = excluir_div.parentNode.parentNode
+	var retirar_horas = linha.childNodes[0].textContent
+	retirar_horas = retirar_horas.split("h")
+	retirar_horas = retirar_horas.shift()
+	retirar_horas = parseFloat(retirar_horas)
+
+	somar_horas -= retirar_horas
+	mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
+
+	linha.remove()
 }
 
 
@@ -72,7 +77,6 @@ var conferirValores = () => {
 	else{
 		avisoErroSuceso(indicador)
 		criarValores()
-		calcularHoras()
 		limparCampos()
 	}
 }
@@ -107,21 +111,29 @@ var limparCampos = () => {
 	data_entrada.value = ''
 }
 
+//Variaveis para aplicar soma das horas na página
 var somar_horas = 0
 
 var mostra_soma = document.createElement('div')
-mostra_soma.id = 'mostra_soma'
+
 mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
 
 var sec_resultado = document.getElementById('resultado_exercicio')
 sec_resultado.appendChild(mostra_soma)
 
+//função que soma as horas aplicadas
 var calcularHoras = () => {
-	var quant_horas = parseFloat(tempo_entrada.value)
+	var horas_tot = document.getElementsByClassName('horas')
+	var valor_horas
 
-	somar_horas += quant_horas
+	for(var i = 0; i < horas_tot.length; i++){
+		valor_horas =  horas_tot[i].textContent
+		valor_horas = valor_horas.split(" ")
+		valor_horas = parseFloat(valor_horas.shift())
+
+		
+	}
+	somar_horas += valor_horas
 
 	mostra_soma.textContent = `Você já fez ${somar_horas} horas de exercicio`
-
-	var mudar_resultado = document.getElementById('mostra_soma')
 }

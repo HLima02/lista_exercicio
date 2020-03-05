@@ -28,8 +28,6 @@ var criarValores = () => {
 
 	excluir_div.className = 'fa fa-trash'
 	excluir_div.id = 'span_exculir'
-	excluir_div.style.float = 'right'
-	excluir_div.style.cursor = 'pointer'
 
 	var item_div = document.createElement('div')
 	item_div.className = 'lista_itens'

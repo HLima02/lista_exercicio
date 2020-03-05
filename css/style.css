@@ -2,18 +2,21 @@ body{
 	font-family: Arial, sans-serif;
 	text-align: center;
 	max-width: 1024px;
-	min-width: 320px;
+	min-width: 360px;
 	margin: 0 auto;
 }
 
 span{
 	display: inline-block;
-	width: 30%;
 	text-align: left;
+	padding: 0 15px;
 }
 
-#span_exculir{
+#span_excluir{
 	width: 10%;
+	float: right;
+	cursor: pointer;
+	text-align: right;
 }
 
 #box_entrada, #lista_saida{
@@ -38,10 +41,10 @@ fieldset{
 }
 
 fieldset legend{
-	width: 100%;
+	width: 500px;
 	position: absolute;
 	line-height: 20px;
-	top: -10px;
+	top: -20px;
 	left: 0;
 }
 
@@ -115,5 +118,37 @@ fieldset input,fieldset select{
 	margin: 20px auto;
 	text-align: center
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 23px;
+}
+
+@media only screen and (max-width: 600px){
+	#box_entrada, #lista_saida{
+		width: 95%;
+	}
+
+	#entrada_txt{
+		display: flex;
+		flex-direction: column;
+	}
+
+	fieldset input{
+		width: 90%;
+		padding: 5px;
+		margin: 10px 5px;
+	}
+
+	fieldset select{
+		width: 94%;
+		padding: 5px;
+		margin: 10px 5px;
+	}
+
+	#add{
+		margin: 20px auto 0;
+		width: 25%;
+	}
+
+	#resultado_exercicio{
+		font-size: 19px;
+	}
 }
